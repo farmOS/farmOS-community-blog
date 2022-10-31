@@ -1,7 +1,7 @@
 ---
 title: Getting Started with farmOS
 date: 2022-10-31
-slug: getting-started
+slug: 2022/getting-started
 ---
 
 # Welcome to farmOS
