@@ -6,7 +6,7 @@ slug: 2022/getting-started
 
 # Welcome to farmOS
 
-If you are a farmer, gardener, forester, fungiculturist, animal keeper, or human in general; chances are you love cultivating growing things. That love may not extend equally to the growing pile of paper record notebooks or the almost innevitable growth in required spreadsheet complexity/maintenance. [farmOS](https://farmos.org/) is an alternative to those record keeping mechanisms which aims to provide a simple standardized place to track your growing things and information about them over time.
+If you are a farmer, gardener, forester, fungiculturist, animal keeper, or human in general; chances are you love cultivating growing things. That love may not extend equally to the growing pile of paper record notebooks or the almost inevitable growth in required spreadsheet complexity/maintenance. [farmOS](https://farmos.org/) is an alternative to those record keeping mechanisms which aims to provide a simple standardized place to track your growing things and information about them over time.
 
 This post will assume you are starting with zero knowledge of farmOS and guide you through creating an instance of farmOS with some example records. The example records will necessarily pertain to one particular agriculture scenario, but should serve to illustrate some the basic patterns which tend to be universal to records about all growing things.
 
