@@ -94,10 +94,10 @@ farmOS v1.
 - Security
   - Support from the [Drupal Security Team](https://www.drupal.org/drupal-security-team)
   - Drupal 9 will be supported (with security updates) until November 2023.
-  - Drupal 10 will be released mid-2022. farmOS will be prepared to update as
-    soon as possible. This process will be trivial compared to the upgrade from
-    Drupal 7, which required a complete refactor of the codebase. By comparison,
-    updating from Drupal 9 to 10 will simply involve updating deprecated code.
+  - Drupal 10 was released December 15th, 2022. The farmOS update process will
+    be trivial compared to the upgrade from Drupal 7, which required a complete
+    refactor of the codebase. By comparison, updating from Drupal 9 to 10 will
+    simply involve updating deprecated code.
 
 ## Next steps
 
