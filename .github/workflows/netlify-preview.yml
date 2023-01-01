@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - 'netlify-preview'
-    paths:
-      - 'posts/**'
 
 jobs:
   build:
