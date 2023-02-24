@@ -1,6 +1,7 @@
 ---
 title: Getting Started with farmOS
 date: 2022-10-31
+author: Symbioquine
 slug: 2022/getting-started
 ---
 
