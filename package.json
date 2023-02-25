@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "farmos-community-blog",
+  "type": "module",
+  "scripts": {
+    "build-preview": "rm -rf farmOS.org && git clone --depth=1 https://github.com/farmOS/farmOS.org && cd farmOS.org && npm i && BLOG_REPO=$(node ../netlifyGetRepoUrl.js) BLOG_REPO_BRANCH=$HEAD npm run build"
+  },
+  "devDependencies": {
+    "node-fetch": "^3.3.0"
+  }
+}
