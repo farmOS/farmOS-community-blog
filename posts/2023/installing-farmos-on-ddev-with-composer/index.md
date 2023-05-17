@@ -5,7 +5,16 @@
  slug: 2023/installing-farmos-on-ddev-with-composer
  --- 
 # DDEV
-DDEV is a great way to build Drupal projects in a local environment. It is cross-platform, can be used with many other CMSs, supports many versions of Docker, and easy to extend and integrate. When combined with Colima and Mutagen, not only is the requirement for Docker desktop removed, but performance can be impressively fast. Instructions on setting up DDEV are at https://ddev.readthedocs.io/en/latest/users/install/
+DDEV is a great way to build Drupal projects in a local environment:
+* Cross-platform, open source software.
+* Can be used with development for many other CMSs.
+* Automatic HTTPS.
+* Supports many versions of Docker or can be used with Colima.
+* When combined with Colima and Mutagen, performance is significantly improved.
+* Support multiple databases (including MySQL, Postgre, SQLite).
+* Lots of developer tools included, and is easy to extend and integrate.  
+
+Instructions on setting up DDEV are at https://ddev.readthedocs.io/en/latest/users/install/
 
 # Recommended Method to Install farmOS
 The recommended (and supported) method to install a farmOS local development environment (https://farmos.org/development/environment) is via a Docker container, but this may not work well with Colima.
@@ -29,4 +38,6 @@ ddev launch
 ```
 
 # Additional Reference
-More information and template is available at https://github.com/paul121/farmos-ddev-template
+More information on using DDEV with farmOS is available at https://github.com/paul121/farmos-ddev-template.
+
+CLI commands for DDEV are listed at https://ddev.readthedocs.io/en/latest/users/usage/cli/
