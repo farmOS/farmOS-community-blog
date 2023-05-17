@@ -1,9 +1,10 @@
---- 
- title: Installing farmOS on DDEV with Composer 
- date: 2023-05-17
- author: rgcarr 
- slug: 2023/installing-farmos-on-ddev-with-composer
- --- 
+---
+title: Installing farmOS on DDEV with Composer
+date: 2023-05-17
+author: rgcarr
+slug: 2023/installing-farmos-on-ddev-with-composer
+---
+
 # DDEV
 DDEV is a great way to build Drupal projects in a local environment:
 * Cross-platform, open source software.
