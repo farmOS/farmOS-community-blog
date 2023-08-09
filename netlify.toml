@@ -1,6 +1,7 @@
 [build]
   publish = "farmOS.org/public/"
   command = "npm run build-preview"
+  environment = { NODE_VERSION = "18" }
 
 [[headers]]
   for = "/*"
