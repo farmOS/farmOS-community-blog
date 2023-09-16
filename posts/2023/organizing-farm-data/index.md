@@ -39,7 +39,7 @@ the expected value for a given type of data as the probability of needing the da
 be expressed in dollars or time and will necessarily be best guesses, but they can provide a bit of a framework for determining if the opportunity cost for entering the
 data is worth it.
 
-A simple example would be if having a peice of data up-to-date and in a convenient place will save you 10 minutes per day but takes an hour a week to enter/update, it
+A simple example would be if having a piece of data up-to-date and in a convenient place will save you 10 minutes per day but takes an hour a week to enter/update, it
 might only barely be worth it.
 
 More complexly, if having historical seeding rates (perhaps in kg/acre) lets you avoid $100 in wasted seed 50% of years and takes an hour per year to enter and use the
@@ -94,7 +94,7 @@ be.
 The thought exercise described so far can be a powerful tool for planning what data to enter, but it is worthless without the subsequent work of actually following through
 on consistently entering the data.
 
-For those just getting started, it will probably make sense to pick a small peice of the larger planned data and practice consistently entering that data. You may find
+For those just getting started, it will probably make sense to pick a small piece of the larger planned data and practice consistently entering that data. You may find
 that certain parts of your plan need to change along the way to fit real-world constraints such as time or available-level-of-detail. Additionally, you will probably
 learn things about how your data fits into farmOS.
 
