@@ -77,3 +77,29 @@ can be built.
 DDEV provides integrations with hosting providers to simplify the process of
 syncing production data into a local environment. For more information see
 [Hosting Provider Integration](https://ddev.readthedocs.io/en/stable/users/providers/)
+
+# Docker image limitations
+
+farmOS has been using Docker and Docker Compose to create and distribute
+reproducible development environments for the past many years. Each commit to
+farmOS builds a new Docker image that includes the environment and development
+dependencies required to install, test and lint the core codebase. While this
+process has worked well to onboard many new contributors and developers of
+farmOS, it has not been without a few headaches.
+
+One of the larger issues has simply been that installing Docker in different
+operating systems is not always a trivial process. Once installed, there are
+often additional steps required to property configure, start and use the local
+Docker environment. Slow file systems in macOS and the WSL2 layer in Windows
+are two of the most common examples that come to mind.
+
+Another issue with this process has been using the single farmOS Docker image
+to do development of contributed and custom modules (or entire project sites!)
+that are separate from farmOS core. These use cases often require a more
+complex understanding of Docker volumes and composer to properly manage and
+update project dependencies that are not compatible with the simpler
+`docker pull` update strategy the farmOS docker image is designed for. It also
+becomes more challenging to share and recreate these custom develop enviroments
+with members on a larger team.
+
+If you experience any of these issues while developing farmOS, give DDEV a try!
