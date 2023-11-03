@@ -35,14 +35,11 @@ projects in a local environment:
 - Once installed, the following commands will create a DDEV project and install farmOS:
 
 ```
-mkdir farmos-ddev
-cd farmos-ddev
 ddev config --project-type=drupal9 --docroot=web --create-docroot --database=postgres:15 --php-version=8.1
 ddev get wotnak/ddev-php-geos
 ddev start
 ddev composer create "farmos/project:2.x-dev"
-ddev composer require drush/drush
-ddev drush site:install --account-name=admin --account-pass=admin -y
+ddev drush site:install farm --account-name=admin --account-pass=admin -y
 ddev drush uli
 ddev launch
 ```
