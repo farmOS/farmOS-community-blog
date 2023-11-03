@@ -63,3 +63,17 @@ ddev launch
 - Add dependency (exmple `farm_organic`): `ddev composer require drupal/farm_organic`
 - Updating dependencies: `ddev composer update`
 - See farmOS documentation on using Composer: https://farmos.org/hosting/composer/
+
+# Going to production
+
+It should be noted that DDEV _is not_ designed to be used as a production
+hosting environment. DDEV is designed to make managing a local development
+environment easier. Taking a local environment to production depends entirely
+on how that production environment is built. Most composer-based workflows
+will expect the project's `composer.json`, `composer.lock` and any application
+code be checked in to source control, from which the production environment
+can be built.
+
+DDEV provides integrations with hosting providers to simplify the process of
+syncing production data into a local environment. For more information see
+[Hosting Provider Integration](https://ddev.readthedocs.io/en/stable/users/providers/)
