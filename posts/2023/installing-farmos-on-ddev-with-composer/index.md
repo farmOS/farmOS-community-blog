@@ -44,7 +44,22 @@ ddev drush uli
 ddev launch
 ```
 
-# Additional Reference
-More information on using DDEV with farmOS is available at https://github.com/paul121/farmos-ddev-template.
+## Usage
 
-CLI commands for DDEV are listed at https://ddev.readthedocs.io/en/latest/users/usage/cli/
+### Useful DDEV commands:
+- Start/stop a project: `ddev start`/ `ddev stop`
+- Open project: `ddev launch`
+- Stop ddev: `ddev poweroff`
+- PHP CLI: `ddev php`
+- Additional DDEV commands: https://ddev.readthedocs.io/en/latest/users/usage/cli/
+
+### Drush
+- Drush commands: `ddev drush {drush command}`
+- Login link: `ddev drush uli`
+- CRON: `ddev drush cron`
+- Additional Drush commands: https://www.drush.org/latest/commands/all/
+
+### Composer:
+- Add dependency (exmple `farm_organic`): `ddev composer require drupal/farm_organic`
+- Updating dependencies: `ddev composer update`
+- See farmOS documentation on using Composer: https://farmos.org/hosting/composer/
