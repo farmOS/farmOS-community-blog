@@ -6,24 +6,33 @@ slug: 2023/installing-farmos-on-ddev-with-composer
 ---
 
 # DDEV
-DDEV is a great way to build Drupal projects in a local environment:
+
+The recommended method to install farmOS in a local development environment
+using Docker and Docker Compose is documented
+[here](https://farmos.org/development/environment). This method works great in
+supported environments for developing farmOS core and small projects but can
+require additional configuration when working on larger projects in different
+environments like Colima. For these use-cases installing farmOS in a
+[DDEV](https://ddev.com/) environment may be more straightforward.
+
+> DDEV is an open source tool for running local web development environments for PHP, Python and Node.js, ready in minutes. Its powerful, flexible per-project environment configurations can be extended, version controlled, and shared. DDEV allows development teams to adopt a consistent Docker workflow without the complexities of bespoke configuration.
+
+DDEV's many features are what make it a great way to build Drupal and farmOS
+projects in a local environment:
+
 * Cross-platform, open source software.
-* Can be used with development for many other CMSs.
-* Automatic HTTPS.
 * Supports many versions of Docker or can be used with Colima.
 * When combined with Colima and Mutagen, performance is significantly improved.
+* Automatic HTTPS.
+* Run multiple projects concurrently.
+* Can be used to develop many other CMSs.
 * Support multiple databases (including MySQL, Postgre, SQLite).
 * Lots of developer tools included, and is easy to extend and integrate.  
 
-Instructions on setting up DDEV are at https://ddev.readthedocs.io/en/latest/users/install/
-
-# Recommended Method to Install farmOS
-The recommended (and supported) method to install a farmOS local development environment (https://farmos.org/development/environment) is via a Docker container, but this may not work well with Colima.
-
-There is also advice on installing farmOS using Composer: https://farmos.org/hosting/composer/
-
 # Installing farmOS with DDEV and Composer
-For certain local environments, installing farmOS by Composer may be more straightforward. The following commands would allow farmOS to be installed in a DDEV container:
+
+- First, follow the instructions to install and setup DDEV: https://ddev.readthedocs.io/en/latest/users/install/
+- Once installed, the following commands will create a DDEV project and install farmOS:
 
 ```
 mkdir farmos-ddev
