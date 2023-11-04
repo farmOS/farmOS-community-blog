@@ -90,13 +90,10 @@ Docker can be unintuitive to install and configure on non-linux systems. Long-ex
 such as slow file systems in macOS and WSL2 complexities in Windows frequently present challenges for
 new farmOS admins and developers.
 
-Another issue with this process has been using the single farmOS Docker image
-to do development of contributed and custom modules (or entire project sites!)
-that are separate from farmOS core. These use cases often require a more
-complex understanding of Docker volumes and composer to properly manage and
-update project dependencies that are not compatible with the simpler
-`docker pull` update strategy the farmOS docker image is designed for. It also
-becomes more challenging to share and recreate these custom develop enviroments
-with members on a larger team.
+Another issue with development and production environments based on the official
+farmOS Docker images is that many use-cases quickly outgrow the default set of modules
+and site configuration. In some cases, one can work around that with a deep understanding
+of Docker and/or Docker compose, but such environments can be fragile to updates and
+more challenging to document, share, and recreate in a team context.
 
 If you experience any of these issues while developing farmOS, give DDEV a try!
