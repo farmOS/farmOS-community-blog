@@ -83,8 +83,8 @@ farmOS has been using Docker and Docker Compose to create and distribute
 reproducible development environments for the past many years. Each commit to
 farmOS builds a new Docker image that includes the environment and development
 dependencies required to install, test, and lint the core codebase. While this
-process has worked well to onboard many new contributors and developers of
-farmOS, it has not been without a few headaches.
+process works well to onboard many new contributors and developers of
+farmOS, it also produces some headaches.
 
 One of the larger issues has simply been that installing Docker in different
 operating systems is not always a trivial process. Once installed, there are
