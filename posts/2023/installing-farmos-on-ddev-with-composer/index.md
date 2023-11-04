@@ -86,11 +86,9 @@ dependencies required to install, test, and lint the core codebase. While this
 process works well to onboard many new contributors and developers of
 farmOS, it also produces some headaches.
 
-One of the larger issues has simply been that installing Docker in different
-operating systems is not always a trivial process. Once installed, there are
-often additional steps required to property configure, start and use the local
-Docker environment. Slow file systems in macOS and the WSL2 layer in Windows
-are two of the most common examples that come to mind.
+Docker can be unintuitive to install and configure on non-linux systems. Long-existing platform issues
+such as slow file systems in macOS and WSL2 complexities in Windows frequently present challenges for
+new farmOS admins and developers.
 
 Another issue with this process has been using the single farmOS Docker image
 to do development of contributed and custom modules (or entire project sites!)
