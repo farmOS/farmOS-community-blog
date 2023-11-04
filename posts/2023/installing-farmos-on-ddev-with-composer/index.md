@@ -98,4 +98,4 @@ and site configuration. In some cases, one can work around that with a deep unde
 of Docker and/or Docker compose, but such environments can be fragile to updates and
 more challenging to document, share, and recreate in a team context.
 
-If you experience any of these issues while developing farmOS, give DDEV a try!
+DDEV offers a refreshing experience for local development of farmOS in Docker - consider trying it out!
