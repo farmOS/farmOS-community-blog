@@ -82,7 +82,7 @@ syncing production data into a local environment. For more information see
 farmOS has been using Docker and Docker Compose to create and distribute
 reproducible development environments for the past many years. Each commit to
 farmOS builds a new Docker image that includes the environment and development
-dependencies required to install, test and lint the core codebase. While this
+dependencies required to install, test, and lint the core codebase. While this
 process has worked well to onboard many new contributors and developers of
 farmOS, it has not been without a few headaches.
 
