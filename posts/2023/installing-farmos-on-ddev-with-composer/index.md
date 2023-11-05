@@ -7,7 +7,7 @@ slug: 2023/installing-farmos-on-ddev-with-composer
 
 # DDEV
 
-For the recommended farmOS local development environment using Docker and Docker compose, see the 
+For the recommended farmOS local development environment using Docker and Docker Compose, see the 
 [farmOS development environment docs](https://farmos.org/development/environment). That method works great in
 supported environments for developing farmOS core and small projects but can
 require additional configuration when working on larger projects in different
