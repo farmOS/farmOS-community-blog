@@ -72,11 +72,14 @@ environment easier. Taking a local environment to production depends entirely
 on how that production environment is built. Most composer-based workflows
 will expect the project's `composer.json`, `composer.lock` and any application
 code be checked in to source control, from which the production environment
-can be built.
+can be built. For more information on hosting farmOS see:
+- [Installing farmOS](https://farmos.org/hosting/install/)
+- [Building farmOS with Composer](https://farmos.org/hosting/composer/)
 
-DDEV provides integrations with hosting providers to simplify the process of
-syncing production data into a local environment. For more information see
-[Hosting Provider Integration](https://ddev.readthedocs.io/en/stable/users/providers/)
+Another strategy that might be worth experimenting with is DDEV's hosting
+provider integrations. These can be customized for different workflows to sync
+data between a production and the local environment. For more information see
+[Hosting Provider Integration](https://ddev.readthedocs.io/en/stable/users/providers/).
 
 # Docker image limitations
 
