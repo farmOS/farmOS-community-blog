@@ -50,7 +50,7 @@ ddev launch
 ### Useful DDEV commands:
 - Start/stop a project: `ddev start`/ `ddev stop`
 - Open project: `ddev launch`
-- Stop ddev: `ddev poweroff`
+- Stop DDEV: `ddev poweroff`
 - PHP CLI: `ddev php`
 - Additional DDEV commands: https://ddev.readthedocs.io/en/latest/users/usage/cli/
 
