@@ -25,7 +25,7 @@ projects in a local environment:
 * Automatic HTTPS.
 * Run multiple projects concurrently.
 * Can be used to develop many other CMSs.
-* Support multiple databases (including MySQL, Postgre, SQLite).
+* Support multiple databases (including MySQL, PostgreSQL, SQLite).
 * Lots of developer tools included, and is easy to extend and integrate.  
 
 # Installing farmOS with DDEV and Composer
