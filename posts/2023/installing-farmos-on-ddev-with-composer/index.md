@@ -42,7 +42,6 @@ ddev start
 ddev composer create "farmos/project:3.x-dev"
 ddev drush site:install farm --account-name=admin --account-pass=admin -y
 ddev drush uli
-ddev launch
 ```
 
 ## Usage
