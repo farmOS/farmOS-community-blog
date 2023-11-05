@@ -31,12 +31,27 @@ projects in a local environment:
 # Installing farmOS with DDEV and Composer
 
 - First, follow the instructions to install and setup DDEV: https://ddev.readthedocs.io/en/latest/users/install/
-- Once installed, the following commands will create a DDEV project and install farmOS:
+- Once installed, you can create a DDEV project and install farmOS. Your DDEV project is configured to use
+a specific PHP and database version and can include additional DDEV addons and services. Here are two
+examples of how to create and configure your DDEV project:
 
+1. Use the `wotnak/ddev-farmos` addon to configure a DDEV project with the latest recommended versions
+of PHP, PostgreSQL and PHP GEOS for farmOS. This addon will also configure the private filesystem and a Cron job for Drupal.
 ```
 # Create a directory for the farmOS DDEV project
 mkdir farmos-project && cd farmos-project
-ddev config --project-type=drupal10 --docroot=web --create-docroot --database=postgres:15 --php-version=8.1
+ddev config --project-type=php
+ddev get wotnak/ddev-farmos
+ddev composer create farmos/project:3.x-dev
+ddev drush site:install farm --account-name=admin --account-pass=admin -y
+ddev drush uli
+```
+
+2. If you prefer, you can also configure each aspect of the DDEV project yourself:
+```
+# Create a directory for the farmOS DDEV project
+mkdir farmos-project && cd farmos-project
+ddev config --project-type=drupal10 --docroot=web --create-docroot --database=postgres:15 --php-version=8.2
 ddev get wotnak/ddev-php-geos
 ddev start
 ddev composer create "farmos/project:3.x-dev"
