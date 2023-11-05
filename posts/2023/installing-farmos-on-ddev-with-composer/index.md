@@ -95,7 +95,7 @@ new farmOS admins and developers.
 Another issue with development and production environments based on the official
 farmOS Docker images is that many use-cases quickly outgrow the default set of modules
 and site configuration. In some cases, one can work around that with a deep understanding
-of Docker and/or Docker compose, but such environments can be fragile to updates and
+of Docker and/or Docker Compose, but such environments can be fragile to updates and
 more challenging to document, share, and recreate in a team context.
 
 DDEV offers a refreshing experience for local development of farmOS in Docker - consider trying it out!
