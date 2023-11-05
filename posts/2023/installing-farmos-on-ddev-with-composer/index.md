@@ -35,7 +35,7 @@ projects in a local environment:
 
 ```
 # Create a directory for the farmOS DDEV project
-mkdir -p farmos-project && cd farmos-project
+mkdir farmos-project && cd farmos-project
 ddev config --project-type=drupal10 --docroot=web --create-docroot --database=postgres:15 --php-version=8.1
 ddev get wotnak/ddev-php-geos
 ddev start
