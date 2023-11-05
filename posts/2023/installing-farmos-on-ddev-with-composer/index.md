@@ -1,7 +1,7 @@
 ---
 title: Installing farmOS on DDEV with Composer
-date: 2023-05-17
-author: rgcarr
+date: 2023-11-05
+author: rgcarr, Paul Weidner
 slug: 2023/installing-farmos-on-ddev-with-composer
 ---
 
