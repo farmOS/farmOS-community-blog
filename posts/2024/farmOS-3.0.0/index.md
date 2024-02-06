@@ -9,7 +9,7 @@ slug: 2024/farmOS-3.0.0
 
 [farmOS 3.0.0 was released](https://github.com/farmOS/farmOS/releases/tag/3.0.0)
 on January 6th, 2024 (almost exactly a year after
-[2.0.0 was released](../2023/farmOS-2.0.0))!
+[2.0.0 was released](./2023/farmOS-2.0.0))!
 
 This may seem like it happened quickly, considering that it took ~4 years to go
 from farmOS v1 to v2. Now that we are using

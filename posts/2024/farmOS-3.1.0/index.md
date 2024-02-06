@@ -37,7 +37,7 @@ A new Inventory quick form is now available, which makes it easier to maintain
 asset inventory levels. Just select the asset you want to adjust and enter the
 quantity (as a "reset", "increment", or "decrement")! There are some more
 advanced options too, which are described in a dedicated post:
-[Inventory Quick Form](./inventory-quick-form)
+[Inventory Quick Form](./2024/inventory-quick-form)
 
 ![Inventory quick form](./inventory-quick-form.png)
 
