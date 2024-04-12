@@ -19,21 +19,22 @@ of the highlights.
 If you've ever wanted the ability to have discussions on individual records, now
 you can. Three new modules are available, which add the ability to comment on
 logs, assets, and plans, respectively. Previously, the only way to record these
-kinds of thoughts or conversations was in the notes field of the record, which
-isn't ideal for obvious reasons.
+kinds of thoughts or conversations in farmOS was via the notes field of the
+record, which isn't ideal for obvious reasons - i.e. lack of enforced structure,
+attribution, etc.
 
-Comments appear at the bottom of each record, and each comment has its own
-author and timestamp, which helps to keep track of who chimed in on the
-conversation and when. It's also possible to reply to comments, so a
-conversation can fork into multiple areas of focus.
+Comments appear at the bottom of each record. Each comment has its own author
+and timestamp which helps to keep track of who chimed in on the conversation
+and when. It's also possible to reply to comments, so a conversation can branch
+out into multiple areas of focus.
 
 ## Filter by log notes
 
-On the April 10th, 2024 farmOS
-[monthly call](https://farmos.org/community/monthly-call/), Nick from
-[BOTL Farm](https://botlfarm.com/) asked about searching logs based on their
-notes. The set of log filters only had the option to search by name. So we took
-the opportunity to show how the lists of logs are built (with the
+On the
+[April 10th, 2024 farmOS monthly call](https://farmos.discourse.group/t/farmos-monthly-call-10-april-2024/1972),
+Nick from [BOTL Farm](https://botlfarm.com/) asked about searching logs based on
+their notes. The set of log filters only had the option to search by name. So we
+took the opportunity to show how the lists of logs are built (with the
 [Views](https://www.drupal.org/docs/8/core/modules/views/overview) module), how
 to add a filter, how to export that to a configuration YAML file, and how to
 open a pull request to contribute that change back to farmOS. Here is the pull
@@ -58,7 +59,7 @@ which will make things even easier!
 It is now possible to upload files and images to all types of taxonomy terms.
 Previously, only the "Plant type" terms had a field for images, but many people
 requested the ability to add files and images to other types as well. For
-example, attaching PDFs to material type, or photos to animal types.
+example, attaching PDFs to material type terms, or photos to animal type terms.
 
 ## Linking taxonomy terms to ontologies
 
