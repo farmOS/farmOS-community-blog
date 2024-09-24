@@ -42,17 +42,17 @@ selected logs.
 ## Timeline library
 
 This release of farmOS includes a new experimental timeline rendering library
-that we have been experimenting with in the
+that we have begun leveraging in the
 [Crop Planning](https://drupal.org/project/farm_crop_plan) and
 [Grazing Planning](https://drupal.org/project/farm_crop_plan) modules. These
-modules (and others) can now leverage the new shared library to experiment with
+modules (and others) can now use the new shared library for
 rendering timeline gantt visualizations. In the future, we hope to use the
-library in various places in the farmOS core UIs, as well.
+library in additional farmOS core UIs as well.
 
 This library is being developed and maintained as a standalone project called
 [farmOS-timeline](https://github.com/farmOS/farmOS-timeline), similar to the
 existing [farmOS-map](https://github.com/farmOS/farmOS-map) library. Special
-thanks to the maintainers of the
+thanks to the maintainers of
 [svelte-gantt](https://github.com/ANovokmet/svelte-gantt), which we used as
 the basis for farmOS-timeline.
 
