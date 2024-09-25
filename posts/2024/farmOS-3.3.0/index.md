@@ -61,7 +61,7 @@ the basis for farmOS-timeline.
 We are now building official ARM64v7 and ARM64v8 Docker images and pushing them
 to the [farmOS Docker Hub repository](https://hub.docker.com/r/farmos/farmos).
 This means that it's easier to run farmOS in Docker on newer Raspberry Pi and
-Apple M1 processors. Previously, you would need to clone the farmOS Git
+Apple M-series processors. Previously, you would need to clone the farmOS Git
 repository and run `docker build` locally, but now you can just run
 `docker pull farmos/farmos:3.3.0` to download the official image.
 
