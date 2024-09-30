@@ -14,6 +14,10 @@ We are excited to announce the release of
 This release includes a number of new features and improvements. Here are some
 of the highlights.
 
+**Note: farmOS 3.3.1 was released shortly after 3.3.0 with a fix for an upgrade
+bug. If you are upgrading from an earlier version of farmOS, please use
+[3.3.1](https://github.com/farmOS/farmOS/releases/tag/3.3.1) instead.**
+
 ## Geometry/location CSV importer columns
 
 Some new columns are available in the standard asset and log CSV importer
