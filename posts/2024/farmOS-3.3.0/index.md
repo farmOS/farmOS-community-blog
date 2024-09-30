@@ -44,7 +44,7 @@ selected logs.
 This release of farmOS includes a new experimental timeline rendering library
 that we have begun leveraging in the
 [Crop Planning](https://drupal.org/project/farm_crop_plan) and
-[Grazing Planning](https://drupal.org/project/farm_crop_plan) modules. These
+[Grazing Planning](https://drupal.org/project/farm_grazing_plan) modules. These
 modules (and others) can now use the new shared library for
 rendering timeline gantt visualizations. In the future, we hope to use the
 library in additional farmOS core UIs as well.
