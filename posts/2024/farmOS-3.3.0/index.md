@@ -60,9 +60,9 @@ thanks to the maintainers of
 [svelte-gantt](https://github.com/ANovokmet/svelte-gantt), which we used as
 the basis for farmOS-timeline.
 
-## Official ARM64 Docker Images
+## Official ARM Docker Images
 
-We are now building official ARM64v7 and ARM64v8 Docker images and pushing them
+We are now building official ARM32v7 and ARM64v8 Docker images and pushing them
 to the [farmOS Docker Hub repository](https://hub.docker.com/r/farmos/farmos).
 This means that it's easier to run farmOS in Docker on newer Raspberry Pi and
 Apple M-series processors. Previously, you would need to clone the farmOS Git
