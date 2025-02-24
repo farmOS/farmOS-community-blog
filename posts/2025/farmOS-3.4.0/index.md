@@ -1,22 +1,18 @@
 ---
-title: farmOS 3.4.0
+title: farmOS 3.4
 date: 2025-02-24
 author: Michael Stenta
-slug: 2025/farmOS-3.4.0
+slug: 2025/farmOS-3.4
 categories:
   - newsletter
 ---
 
-# farmOS 3.4.0
+# farmOS 3.4
 
 We are excited to announce the release of
-[farmOS 3.4.0](https://github.com/farmOS/farmOS/releases/tag/3.4.0)!
+[farmOS 3.4](https://github.com/farmOS/farmOS/releases/tag/3.4.0)!
 This release includes a number of new features and improvements. Here are some
 of the highlights.
-
-**Note: farmOS 3.4.1 was released shortly after 3.4.0 with some Drupal core
-security fixes. If you are upgrading from an earlier version of farmOS, please
-use [3.4.1](https://github.com/farmOS/farmOS/releases/tag/3.4.1) instead.**
 
 ## Equipment types
 
@@ -44,6 +40,7 @@ including:
 
 ---
 
-Those are only the highlights of the 3.4.0 release. To see the full list of
-new features, bug fixes, and other changes, refer to the
-[3.4.0 release notes](https://github.com/farmOS/farmOS/blob/3.4.0/CHANGELOG.md).
+These are only some of the highlights of farmOS 3.4. To see the latest patch
+versions, full list of new features, bug fixes, and other changes, refer to the
+[change log](https://github.com/farmOS/farmOS/blob/3.x/CHANGELOG.md) release
+notes.
