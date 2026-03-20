@@ -316,7 +316,8 @@ Other notable changes:
   necessary, but an OAuth2 server is not. More details:
   [Make farmOS API OAuth2 Server optional #973](https://github.com/farmOS/farmOS/pull/973)
 - OAuth2 public/private keys are not automatically generated during
-  installation. See [OAuth2 keys](/hosting/install/#oauth2-keys) for manual
+  installation. See
+  [OAuth2 keys](https://farmOS.org/hosting/install/#oauth2-keys) for manual
   setup steps. More details:
   [Do not generate keys during farm_api_install() #972](https://github.com/farmOS/farmOS/pull/972)
 
