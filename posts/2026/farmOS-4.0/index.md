@@ -296,7 +296,7 @@ and `all`). These options have been removed.
 If you need to install modules during a CI/CD operation, use `drush en` to
 install them individually.
 
-if you need to install _all_ modules, a new Drush command is provided by the
+If you need to install _all_ modules, a new Drush command is provided by the
 `farm_test` module for doing so. To use it, first install `farm_test`, then
 run the `farm_test:modules` command. For example:
 
