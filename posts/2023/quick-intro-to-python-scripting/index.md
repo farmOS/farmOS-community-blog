@@ -1,11 +1,17 @@
 ---
 title: Introduction to Python Scripting with farmOS
 date: 2023-03-13
+updated: 2026-11-18
 author: Symbioquine
 slug: 2023/quick-intro-to-python-scripting
 ---
 
 # Introduction to Python Scripting with farmOS.py
+
+*This post was first published in 2023 and has since been updated in place
+for farmOS 4 (uv instead of Poetry, the `FarmClient` + `httpx_auth`
+password flow instead of the old `farmOS` class, and the `archived`
+boolean instead of the `status` field).*
 
 Although farmOS has a convenient web interface that is useful for record keeping
 and reference tasks by humans, sometimes it is necessary to programmatically
@@ -16,13 +22,13 @@ farmOS. The documentation for farmOS.py can be found online
 have significant overlap with those docs, but will attempt to provide a slightly
 more applied and prescriptive introduction to Python scripting with farmOS.
 
-This tutorial will use a tool called Poetry to help set up a Python development
-environment. See https://python-poetry.org/docs/ for set up instructions.
+This tutorial will use a tool called uv to help set up a Python development
+environment. See https://docs.astral.sh/uv/ for set up instructions.
 
 ```shell
 mkdir farm_python_scripting_tutorial && cd farm_python_scripting_tutorial
-poetry init
-poetry add "farmOS^1"
+uv init
+uv add "farmOS>=2"
 ```
 
 ## Initialization
@@ -33,47 +39,51 @@ correctly and can connect to farmOS.
 **initialization_example.py**
 
 ```python
-from farmOS import farmOS
+from httpx_auth import OAuth2ResourceOwnerPasswordCredentials
+from farmOS import FarmClient
 
-farm_client = farmOS(
-    hostname= "https://farm.example.com",
-    client_id = "farm",
-    scope = "farm_manager",
+auth = OAuth2ResourceOwnerPasswordCredentials(
+    token_url="https://farm.example.com/oauth/token",
+    username='admin',
+    password='test',
+    client_id='farm',
+    scope='farm_manager',
 )
 
-farm_client.authorize(
-    # Omit username/password args for an interactive prompt
-    # username='admin',
-    # password='test',
+farm_client = FarmClient(
+    hostname="https://farm.example.com",
+    auth=auth,
 )
+
+info = farm_client.info()
 
 print("farmOS.py successfully initialized for farm: '{farm_detail[name]}' @ \n\t'{farm_detail[url]}' running version {farm_detail[version]}"
     .format(farm_detail=info['meta']['farm']))
 ```
 
-To run it in our poetry environment, we can do:
+To run it in our uv environment, we can do:
 
 ```shell
-poetry run python initialization_example.py
+uv run python initialization_example.py
 ```
 
 Which prints something like:
 
 ```
 farmOS.py successfully initialized for farm: 'Example Farm' @
-    'https://farm.example.com' running version 2.0.0
+    'https://farm.example.com' running version 4.0.9
 ```
 
 ### Aside About Self-signed Certificates
 
 If you are experimenting with farmOS using a self-signed certificate and get an
-SSLError like; ```requests.exceptions.SSLError: HTTPSConnectionPool(host='farm.example.com', port=443): Max retries exceeded with url: /oauth/token (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')))```
+SSLError like; `ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)`
 
 You may need to export an environment variable to tell Python where to find your
 root CA certificate:
 
 ```shell
-export REQUESTS_CA_BUNDLE=/path/to/your/rootCA.pem
+export SSL_CERT_FILE=/path/to/your/rootCA.pem
 ```
 
 ## Simple Data Reporting/Analysis
@@ -87,18 +97,20 @@ of animals by age in years and sex.
 ```python
 from collections import defaultdict
 from datetime import datetime, timezone
-from farmOS import farmOS
+from httpx_auth import OAuth2ResourceOwnerPasswordCredentials
+from farmOS import FarmClient
 
-farm_client = farmOS(
-    hostname= "https://farm.example.com",
-    client_id = "farm",
-    scope = "farm_manager",
+auth = OAuth2ResourceOwnerPasswordCredentials(
+    token_url="https://farm.example.com/oauth/token",
+    username='admin',
+    password='test',
+    client_id='farm',
+    scope='farm_manager',
 )
 
-farm_client.authorize(
-    # Omit username/password args for an interactive prompt
-    # username='admin',
-    # password='test',
+farm_client = FarmClient(
+    hostname="https://farm.example.com",
+    auth=auth,
 )
 
 # Maintain a nested dictionary of the number of animals first
@@ -111,7 +123,7 @@ animals_by_years_age_and_sex = defaultdict(
 now = datetime.now(tz=timezone.utc)
 
 # Only consider animals that are not archived
-filters = farm_client.filter('status', 'active')
+filters = farm_client.filter('archived', '0')
 
 # Loop over each animal
 for animal in farm_client.asset.iterate('animal', params=filters):
@@ -137,7 +149,7 @@ for years_age in sorted(animals_by_years_age_and_sex.keys()):
 To run it:
 
 ```shell
-poetry run python livestock_report_example.py
+uv run python livestock_report_example.py
 ```
 
 Should print something like:
@@ -172,18 +184,20 @@ dolly,2021/06/08,F
 ```python
 import csv
 from datetime import datetime
-from farmOS import farmOS
+from httpx_auth import OAuth2ResourceOwnerPasswordCredentials
+from farmOS import FarmClient
 
-farm_client = farmOS(
-    hostname= "https://farm.example.com",
-    client_id = "farm",
-    scope = "farm_manager",
+auth = OAuth2ResourceOwnerPasswordCredentials(
+    token_url="https://farm.example.com/oauth/token",
+    username='admin',
+    password='test',
+    client_id='farm',
+    scope='farm_manager',
 )
 
-farm_client.authorize(
-    # Omit username/password args for an interactive prompt
-    # username='admin',
-    # password='test',
+farm_client = FarmClient(
+    hostname="https://farm.example.com",
+    auth=auth,
 )
 
 # Get the first animal type which is named 'Sheep' or else None
@@ -226,7 +240,7 @@ with open('animals.csv', newline='') as csvfile:
 
         print("Created {!r}: {}/asset/{}".format(
             animal['animal_name'],
-            farm_client.session.hostname,
+            farm_client.base_url,
             animal_create_response['data']['attributes']['drupal_internal__id'],
         ))
 
@@ -235,7 +249,7 @@ with open('animals.csv', newline='') as csvfile:
 To run it:
 
 ```shell
-poetry run python import_animals.py
+uv run python import_animals.py
 ```
 
 Should print something like:
@@ -251,24 +265,26 @@ Created 'dolly': https://farm.example.com/asset/4409
 
 This final example demonstrates both reading and modifying farmOS data using
 farmOS.py. It loops over all the plant assets from the previous season (e.g.
-"2022"), creating a harvest log for each, then archiving the plant asset.
+"2025"), creating a harvest log for each, then archiving the plant asset.
 
 **harvest_and_archive_last_season_crops.py**
 
 ```python
 from datetime import datetime, timezone
-from farmOS import farmOS
+from httpx_auth import OAuth2ResourceOwnerPasswordCredentials
+from farmOS import FarmClient
 
-farm_client = farmOS(
-    hostname= "https://farm.example.com",
-    client_id = "farm",
-    scope = "farm_manager",
+auth = OAuth2ResourceOwnerPasswordCredentials(
+    token_url="https://farm.example.com/oauth/token",
+    username='admin',
+    password='test',
+    client_id='farm',
+    scope='farm_manager',
 )
 
-farm_client.authorize(
-    # Omit username/password args for an interactive prompt
-    # username='admin',
-    # password='test',
+farm_client = FarmClient(
+    hostname="https://farm.example.com",
+    auth=auth,
 )
 
 # Get the current UTC date for the harvest log dates and season name
@@ -276,7 +292,7 @@ now = datetime.now(tz=timezone.utc)
 
 # Only consider plants that are not archived
 filters = {
-    **farm_client.filter('status', 'active'),
+    **farm_client.filter('archived', '0'),
     **farm_client.filter('season.name', str(now.year - 1)),
 }
 
@@ -308,13 +324,13 @@ for plant in farm_client.asset.iterate('plant', params=filters):
     farm_client.asset.send('plant', {
         'id': plant["id"],
         "attributes": {
-            "status": "archived",
+            "archived": True,
         }
     })
 
     print("\tCreated log {!r}: {}/log/{}".format(
         log_create_response['data']['attributes']['name'],
-        farm_client.session.hostname,
+        farm_client.base_url,
         log_create_response['data']['attributes']['drupal_internal__id'],
     ))
 ```
@@ -322,26 +338,26 @@ for plant in farm_client.asset.iterate('plant', params=filters):
 To run it:
 
 ```shell
-poetry run python harvest_and_archive_last_season_crops.py
+uv run python harvest_and_archive_last_season_crops.py
 ```
 
 Should print something like;
 
 ```
-Harvesting and archiving: 2022 L13 PI 358607 Black Pea
-        Created log 'Harvest 2022 L13 PI 358607 Black Pea': https://farm.example.com/log/10388
-Harvesting and archiving: 2022 L13 W6 15041 Black Pea
-        Created log 'Harvest 2022 L13 W6 15041 Black Pea': https://farm.example.com/log/10389
-Harvesting and archiving: 2022 L15 PI 510585 Murado Alverja Violeta
-        Created log 'Harvest 2022 L15 PI 510585 Murado Alverja Violeta': https://farm.example.com/log/10390
-Harvesting and archiving: 2022 L15 PI 618625 Papago
-        Created log 'Harvest 2022 L15 PI 618625 Papago': https://farm.example.com/log/10391
-Harvesting and archiving: 2022 L15 Sormlandsk bonart
-        Created log 'Harvest 2022 L15 Sormlandsk bonart': https://farm.example.com/log/10392
-Harvesting and archiving: 2022 L15 Sugar Snap
-        Created log 'Harvest 2022 L15 Sugar Snap': https://farm.example.com/log/10393
-Harvesting and archiving: 2022 L15 Svalov's Belloart
-        Created log "Harvest 2022 L15 Svalov's Belloart": https://farm.example.com/log/10394
+Harvesting and archiving: 2025 L13 PI 358607 Black Pea
+        Created log 'Harvest 2025 L13 PI 358607 Black Pea': https://farm.example.com/log/10388
+Harvesting and archiving: 2025 L13 W6 15041 Black Pea
+        Created log 'Harvest 2025 L13 W6 15041 Black Pea': https://farm.example.com/log/10389
+Harvesting and archiving: 2025 L15 PI 510585 Murado Alverja Violeta
+        Created log 'Harvest 2025 L15 PI 510585 Murado Alverja Violeta': https://farm.example.com/log/10390
+Harvesting and archiving: 2025 L15 PI 618625 Papago
+        Created log 'Harvest 2025 L15 PI 618625 Papago': https://farm.example.com/log/10391
+Harvesting and archiving: 2025 L15 Sormlandsk bonart
+        Created log 'Harvest 2025 L15 Sormlandsk bonart': https://farm.example.com/log/10392
+Harvesting and archiving: 2025 L15 Sugar Snap
+        Created log 'Harvest 2025 L15 Sugar Snap': https://farm.example.com/log/10393
+Harvesting and archiving: 2025 L15 Svalov's Belloart
+        Created log "Harvest 2025 L15 Svalov's Belloart": https://farm.example.com/log/10394
 ...
 ```
 
